@@ -19,6 +19,8 @@ class CreateBooksTable extends Migration
             $table->string('selflink');
             $table->integer('writer_id');
             $table->string('image');
+            $table->double('price');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
