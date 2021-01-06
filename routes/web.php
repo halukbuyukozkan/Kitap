@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin'], function () {
+    Route::get('/', 'indexController@index');
 });
