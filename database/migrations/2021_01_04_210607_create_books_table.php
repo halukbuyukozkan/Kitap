@@ -17,7 +17,8 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('selflink');
-            $table->integer('writer_id');
+            $table->integer('authorid');
+            $table->integer('publisherid');
             $table->string('image');
             $table->double('price');
             $table->text('description')->nullable();
