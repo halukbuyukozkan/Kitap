@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+            <a href="{{route('admin.publisher.create')}}" class="btn btn-success">Yeni Yayınevi Ekle</a>
                 <div class="card">
                     <div class="card-header" data-background-color="purple">
                         <h4 class="title">Yayın Evleri</h4>
