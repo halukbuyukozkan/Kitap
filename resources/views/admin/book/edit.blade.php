@@ -67,6 +67,19 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating is-empty">
+                                        <select name="categoryid" class="form-control" id="">
+                                            @foreach($category as $key => $value)
+                                            <option @if($value['id']==$data[0]['categoryid']) selected @endif value="{{$value['id']}}">{{$value['name']}}</option>
+                                            @endforeach
+                                        </select>
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating is-empty">
                                         <select name="publisherid" class="form-control" id="">
                                             @foreach($publisher as $key => $value)
                                             <option @if($value['id']==$data[0]['publisherid']) selected @endif value="{{$value['id']}}">{{$value['name']}}</option>

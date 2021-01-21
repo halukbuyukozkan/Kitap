@@ -9,6 +9,7 @@ use App\Models\Publisher;
 use App\Helper\ImageUpload;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\File;
 
 class indexController extends Controller
@@ -23,7 +24,8 @@ class indexController extends Controller
     {
         $author = Author::all();
         $publisher = Publisher::all();
-        return view('admin.book.create', ['author' => $author, 'publisher' => $publisher]);
+        $category = Category::all();
+        return view('admin.book.create', ['author' => $author, 'publisher' => $publisher,'category' => $category]);
     }
 
     public function store(Request $request)
@@ -47,7 +49,8 @@ class indexController extends Controller
             $data = Book::where('id', '=', $id)->get();
             $author = Author::all();
             $publisher = Publisher::all();
-            return view('admin.book.edit', ['data' => $data, 'author' => $author, 'publisher' => $publisher]);
+            $category = Category::all();
+            return view('admin.book.edit', ['category'=>$category,'data' => $data, 'author' => $author, 'publisher' => $publisher]);
         } else {
             return redirect('/');
         }
