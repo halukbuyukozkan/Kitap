@@ -54,4 +54,13 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.'], fu
         Route::post('/edit/{id}', 'indexController@update')->name('edit.post');
         Route::get('/delete/{id}', 'indexController@delete')->name('delete');
     });
+
+    Route::group(['namespace' => 'slider', 'prefix' => 'slider', 'as' => 'slider.'], function () {
+        Route::get('/', 'indexController@index')->name('index');
+        Route::get('/create', 'indexController@create')->name('create');
+        Route::post('/create', 'indexController@store')->name('create.post');
+        Route::get('/edit/{id}', 'indexController@edit')->name('edit');
+        Route::post('/edit/{id}', 'indexController@update')->name('edit.post');
+        Route::get('/delete/{id}', 'indexController@delete')->name('delete');
+    });
 });

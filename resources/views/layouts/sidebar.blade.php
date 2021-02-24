@@ -37,9 +37,9 @@
                 </a>
             </li>
             <li>
-                <a href="./maps.html">
+                <a href="{{route('admin.slider.index')}}">
                     <i class="material-icons">location_on</i>
-                    <p>Maps</p>
+                    <p>Slider</p>
                 </a>
             </li>
             <li>
