@@ -85,7 +85,7 @@
 				    @foreach($chunk as $key => $value)
 					<div class="col-md-3 product-left">
 						<div class="product-main simpleCart_shelfItem">
-							<a href="single.html" class="mask">
+							<a href="{{route('book.detail',['selflink'=>$value['selflink']])}}" class="mask">
 							<img class="img-responsive zoom-img" style="width: 170px;height:200px;" src="{{asset($value['image'])}}" alt="" /></a>
 							<div class="product-bottom">
 								<h3>{{$value['name']}}</h3>

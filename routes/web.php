@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','front\indexController@index')->name('index');
-
+Route::get('/book/detail/{selflink}','front\book\indexController@index')->name('book.detail');
 
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'indexController@index')->name('index');
