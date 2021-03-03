@@ -35,21 +35,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-header-main">
 				<div class="col-md-6 top-header-left">
 					<div class="drop">
+						@auth
+						    <div class="box">
+						        <a href="" style="color:white">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+						    </div>
+
+
+					    @endauth
+					    @guest
 						<div class="box">
-							<select tabindex="4" class="dropdown drop">
-								<option value="" class="label">Dollar :</option>
-								<option value="1">Dollar</option>
-								<option value="2">Euro</option>
-							</select>
+						    <a href="" style="color:white">Giriş Yap</a>
 						</div>
 						<div class="box1">
-							<select tabindex="4" class="dropdown">
-								<option value="" class="label">English :</option>
-								<option value="1">English</option>
-								<option value="2">French</option>
-								<option value="3">German</option>
-							</select>
+							<a href="{{url('/register')}}" style="color:white;">Kayıt Ol</a>
 						</div>
+						@endguest
 						<div class="clearfix"></div>
 					</div>
 				</div>
