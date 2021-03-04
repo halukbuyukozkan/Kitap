@@ -39,12 +39,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    <div class="box">
 						        <a href="" style="color:white">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
 						    </div>
-
-
+							<div class="box">
+							    <a onclick="event.preventDefault();document.getElementById('logout-form').submit()" href="{{route('logout')}}">Çıkış Yap</a>
+								<form action="{{route('logout')}}" method="POST" id="logout-form">
+								     {{csrf_field()}}
+								</form>
+							</div>
+                                     
 					    @endauth
 					    @guest
 						<div class="box">
-						    <a href="" style="color:white">Giriş Yap</a>
+						    <a href="{{route('login')}}" style="color:white">Giriş Yap</a>
 						</div>
 						<div class="box1">
 							<a href="{{url('/register')}}" style="color:white;">Kayıt Ol</a>
