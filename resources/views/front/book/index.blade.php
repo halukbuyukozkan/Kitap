@@ -2,15 +2,26 @@
 @section('content')
 
 <div class="breadcrumbs">
-		<div class="container">
-			<div class="breadcrumbs-main">
-				<ol class="breadcrumb">
-					<li><a href="{{route('index')}}">Anasayfa</a></li>
-					<li class="active">{{$data[0]['name']}}</li>
-				</ol>
-			</div>
+	<div class="container">
+		<div class="breadcrumbs-main">
+			<ol class="breadcrumb">
+				<li><a href="{{route('index')}}">Anasayfa</a></li>
+				<li class="active">{{$data[0]['name']}}</li>
+			</ol>
 		</div>
 	</div>
+</div>
+@if(session("status"))
+    <div class="breadcrumbs" style="margin-top:5px;">
+	    <div class="container">
+		    <div class="breadcrumbs-main" style="padding:10px;"> 
+    {{session("status")}}
+            </div>
+		</div>
+	</div>
+
+	      
+		@endif
 	<!--end-breadcrumbs-->
 	<!--start-single-->
 	<div class="single contact">
@@ -61,7 +72,7 @@
 								<li><span>Yayınevi : </span>
 								<span class="women1">: {{\App\Models\Publisher::getField($data[0]['publisherid'],"name")}}</span></li>
 							</ul>
-								<a href="#" class="add-cart item_add">ADD TO CART</a>
+								<a href="{{route('basket.add',['id'=>$data[0]['id']])}}" class="add-cart item_add">SEPETE EKLE</a>
 							
 						</div>
 					</div>
