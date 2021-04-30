@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="{{route('basket.index')}}">
 							 <div class="total">
 								<span style="font-size: 13px;" class="">{{\App\Helper\basketHelper::totalPrice()}} TL</span></div>
-								<img src="images/cart-1.png" alt="" />
+								<img src="{{asset('images/cart-1.png')}}" alt="" />
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 						<div class="clearfix"> </div>

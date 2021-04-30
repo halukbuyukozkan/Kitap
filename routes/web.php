@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,8 @@ Route::get('/book/detail/{selflink}','front\book\indexController@index')->name('
 Route::get('/basket/add/{id}','front\basket\indexController@add')->name('basket.add');
 Route::get('/basket','front\basket\indexController@index')->name('basket.index');
 Route::get('/basket/remove/{id}','front\basket\indexController@remove')->name('basket.remove');
-Route::get('/basket/complete','front\basket\indexController@complete')->name('basket.complete');
+Route::get('/basket/complete','front\basket\indexController@complete')->name('basket.complete')->middleware(['auth']);
+Route::post('/basket/complete','front\basket\indexController@completeStore')->name('basket.completeStore')->middleware(['auth']);
 
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'indexController@index')->name('index');

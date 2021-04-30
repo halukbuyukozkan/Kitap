@@ -6,6 +6,9 @@ use App\Models\Book;
 use App\Helper\basketHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use GuzzleHttp\Psr7\Message;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class indexController extends Controller
@@ -38,5 +41,45 @@ class indexController extends Controller
     {
         basketHelper::remove($id);
         return redirect()->back();
+    }
+
+    public function complete()
+    {
+        if(basketHelper::countData()!=0)
+        {
+            return view('front.basket.complete');
+
+        }
+        else
+        {
+            return redirect('/');
+        }
+    }
+
+    public function completeStore(Request $request)
+    {
+        $request->validate(['address'=>'required','phone'=>'required']);
+        $address = $request->input('address');
+        $phone = $request->input('phone');
+        $message = $request->input('message');
+        $json = json_encode(basketHelper::allList());
+        $array = 
+            [
+                'userid'=>Auth::id(),
+                'address'=>$address,
+                'phone'=>$phone,
+                'message'=>$message,
+                'json'=>$json
+            ];    
+        
+        $insert = Order::create($array);
+        if($insert)
+        {
+            return redirect()->back()->with('status','Siparişiniz Alındı');
+        }    
+        else
+        {
+            return redirect()->back()->with('status','Siparişiniz Alınamadı');
+        }
     }
 }
