@@ -43,9 +43,9 @@
                 </a>
             </li>
             <li>
-                <a href="./notifications.html">
+                <a href="{{route('admin.order.index')}}">
                     <i class="material-icons text-gray">notifications</i>
-                    <p>Notifications</p>
+                    <p>Siparişlerim</p>
                 </a>
             </li>
             <li class="active-pro">

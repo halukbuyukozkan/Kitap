@@ -70,6 +70,13 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.'], fu
         Route::post('/edit/{id}', 'indexController@update')->name('edit.post');
         Route::get('/delete/{id}', 'indexController@delete')->name('delete');
     });
+    Route::group(['namespace' => 'order', 'prefix' => 'order', 'as' => 'order.'], function () {
+        Route::get('/', 'indexController@index')->name('index');
+        Route::get('/create', 'indexController@create')->name('create');
+        Route::post('/create', 'indexController@store')->name('create.post');
+        Route::get('/detail/{id}', 'indexController@detail')->name('detail');
+        Route::get('/delete/{id}', 'indexController@delete')->name('delete');
+    });
 });
 
 Auth::routes();
