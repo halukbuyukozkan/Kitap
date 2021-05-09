@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="top-nav">
 					<ul class="memenu skyblue"><li class="active"><a href="{{route('index')}}">Anasayfa</a></li>
 					    @foreach(\App\Models\Category::all() as $key => $value)
-						<li class="grid"><a href="typo.html">{{$value['name']}}</a>
+						<li class="grid"><a href="{{route('cat',['selflink'=>$value['selflink']])}}">{{$value['name']}}</a>
 						</li>
 						@endforeach
 						<li class="grid"><a href="contact.html">Contact</a>
