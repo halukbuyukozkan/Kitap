@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','front\indexController@index')->name('index');
-Route::get('/kategori/{selflink}','front\cat\indexController@index')->name('cat');
+Route::get('/category/{selflink}','front\cat\indexController@index')->name('cat');
+Route::get('/search','front\search\indexController@index',)->name('search');
 Route::get('/book/detail/{selflink}','front\book\indexController@index')->name('book.detail');
 Route::get('/basket/add/{id}','front\basket\indexController@add')->name('basket.add');
 Route::get('/basket','front\basket\indexController@index')->name('basket.index');
 Route::get('/basket/remove/{id}','front\basket\indexController@remove')->name('basket.remove');
+Route::get('/basket/flush','front\basket\indexController@flush')->name('basket.flush');
 Route::get('/basket/complete','front\basket\indexController@complete')->name('basket.complete')->middleware(['auth']);
 Route::post('/basket/complete','front\basket\indexController@completeStore')->name('basket.completeStore')->middleware(['auth']);
 

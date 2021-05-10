@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span style="font-size: 13px;" class="">{{\App\Helper\basketHelper::totalPrice()}} TL</span></div>
 								<img src="{{asset('images/cart-1.png')}}" alt="" />
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						<p><a href="{{route('basket.flush')}}" class="simpleCart_empty">Sepeti Temizle</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -98,8 +98,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-3 header-right"> 
 				<div class="search-bar">
-					<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-					<input type="submit" value="">
+				    <form action="{{route('search')}}">
+					    <input type="text" name="q" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+					    <input type="submit" value="">
+					</form>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
